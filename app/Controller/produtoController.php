@@ -12,9 +12,10 @@
 
         if($return == 1) {
             echo "<script>alert('Produto cadastrado com sucesso!');</script>";
-            //header("Location: ../View/cadastro.php");
+            header("Location: ../View/listarProduto.php");
         } else {
             echo "<script>alert('Erro ao cadastrar produto!');</script>";
         }
     }
+    
 ?>

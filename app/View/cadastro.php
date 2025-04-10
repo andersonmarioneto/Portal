@@ -1,16 +1,3 @@
-<!--?php
-    require_once "../Model/produtoModel.php";
-
-    $conexao = Connection::getConn();
-
-    $query = "SELECT * FROM produto";
-    $execute = $conexao->prepare($query);
-    $execute->execute();
-            
-    $produtos = $execute->fetchAll(PDO::FETCH_ASSOC);
-    var_dump($produtos);
-?-->
-
 <!DOCTYPE html>
 <html lang="pt">
 <head>
