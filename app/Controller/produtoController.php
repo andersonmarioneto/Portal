@@ -17,5 +17,20 @@
             echo "<script>alert('Erro ao cadastrar produto!');</script>";
         }
     }
+
+    if (isset($_POST['pegar']) && $_POST['pegar'] == "delete") {
+        $id = $_POST['id'];
+
+        $return = Produto::Delete($id);
+        
+        if($return == 1) {
+            echo "<script>alert('Produto excluído com sucesso!');</script>";
+            header("Location: ../View/listarProduto.php");
+        } else {
+            echo "<script>alert('Erro ao excluir produto!');</script>";
+        }
+    }
+
+    
     
 ?>

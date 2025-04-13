@@ -1,17 +1,5 @@
 <?php
     require_once "../Model/produtoModel.php";
-
-    $conexao = Connection::getConn();
-
-    $query = "SELECT * FROM produto";
-    $execute = $conexao->prepare($query);
-    $execute->execute();
-            
-    $produtos = $execute->fetchAll(PDO::FETCH_ASSOC);
-    //var_dump($produtos);
-
-    //while ($produtos = $execute->fetchAll(PDO::FETCH_OBJ)) {
-        
 ?>
 
 <!DOCTYPE html>
@@ -47,7 +35,10 @@
                     </th>
                 </thead>
                 <tbody>
-                        <?php  foreach ($produtos as $produto): ?>
+                        <?php  
+                            $produtos = Produto::View(); 
+                            foreach ($produtos as $produto): 
+                        ?>
                         <tr>
                             <td></td>
                             <td>#<?php echo $produto["id"]; ?></td>
@@ -62,18 +53,20 @@
                                 <form action="../Controller/produtoController.php" method="POST">
                                     <input type="hidden" name="pegar" value="delete">
                                     <input type="hidden" name="id" value="<?php echo $produto["id"]; ?>">
-                                    <button class="btn btn-sm btn-danger">Delit</button>
+                                    <button class="btn btn-sm btn-danger" id="button-modal-confirm">Delete</button>
+                                   
                                 </form>
                             </td>
                         </tr>
-
-                        <?php endforeach ?>
+                        <?php 
+                            endforeach 
+                        ?>
                 </tbody>
             </table>
 
             <a href="cadastro.php" class="w-10 btn btn-lg btn-primary">Cadastar</a>
-    
 
     </div>
+    <script src="../../public/js/modalConfirm.js" defer></script>
 </body>
 </html>
