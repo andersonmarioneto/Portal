@@ -38,7 +38,8 @@
                 </label>
             </div>
 
-            <button class="w-100 btn btn-lg btn-primary"  type="submit">Cadastrar</button>
+            <button class="w-90 btn btn-lg btn-primary"  type="submit">Cadastrar</button>
+            <a href="listarProduto.php" class="w-10 btn btn-lg btn-warning">Listar</a>
         </form>
     </main>
 </body>

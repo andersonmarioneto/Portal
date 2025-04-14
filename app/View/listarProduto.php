@@ -10,6 +10,8 @@
     <title>Portal</title>
  
     <link href="../../public/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Biblioteca de icones do bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 </head>
 <body>
     <div class="container m-4">
@@ -44,14 +46,14 @@
                         <td><?php echo $produto["preco"]; ?> kz</td>
                         <td><?php echo $produto["descricao"]; ?></td>
                         <td>
-                            <a href="editar.php?id=<?php echo $produto["id"]; ?>" class="btn btn-sm btn-warning">Edit</a>
+                            <a href="editProduto.php?id=<?php echo $produto["id"]; ?>" class="btn btn-sm btn-warning"><i class="bi bi-pencil"></i></a>
                         </td>
                         
                         <td>
                             <form action="../Controller/produtoController.php" method="POST">
                                 <input type="hidden" name="pegar" value="delete">
                                 <input type="hidden" name="id" value="<?php echo $produto["id"]; ?>">
-                                <button class="btn btn-sm btn-danger button-modal-confirm">Delete</button>
+                                <button class="btn btn-sm btn-danger button-modal-confirm"><i class="bi bi-trash"></i></button>
                             </form>
                         </td>
                     </tr>
