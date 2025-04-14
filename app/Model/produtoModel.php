@@ -21,7 +21,7 @@
         public static function View(){
             $conexao = Connection::getConn();
 
-            $query = "SELECT * FROM produto";
+            $query = "SELECT * FROM produto order by nome";
             $execute = $conexao->prepare($query);
             $execute->execute();
                     

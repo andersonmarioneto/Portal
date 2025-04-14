@@ -10,61 +10,58 @@
     <title>Portal</title>
  
     <link href="../../public/css/bootstrap.min.css" rel="stylesheet">
-
-    <link href="../../public/css/signin.css" rel="stylesheet">
 </head>
 <body>
-<div class="container m-4">
+    <div class="container m-4">
+        <div class="text-center mb-4">
+            <img src="../../public/img/logo.png" alt="Logo" width="72" height="72">
+            <h1 class="h3 mb-3 fw-normal">Sistema de Gestão de Produtos</h1>
+            <p class="mt-1 mb-3 text-muted">Sistema de Gestão de Produtos</p>
+        </div>
 
-
-    
-        <h1 class="h3 mb-3 fw-normal">Produtos</h1>
-        <p class="mt-1 mb-3 text-muted">Consulta de produto</p>
-
-            <table class="table table-striped table-hover">
-                <thead> 
-                    <th>
+        <table class="table table-striped table-hover">
+            <thead> 
+                <th>
+                
+                    <th>Cod</th>
+                    <th>Nome</th>
+                    <th>Preço</th>
+                    <th>Desscrição</th>
+                    <th></th> 
+                    <th></th>
                     
-                        <th>#Cod</th>
-                        <th>Nome</th>
-                        <th>Preço</th>
-                        <th>Desscrição</th>
-                        <th></th> 
-                        <th></th>
+                </th>
+            </thead>
+            <tbody>
+                    <?php  
+                        $produtos = Produto::View(); 
+                        foreach ($produtos as $produto): 
+                    ?>
+                    <tr>
+                        <td></td>
+                        <td>#<?php echo $produto["id"]; ?></td>
+                        <td><?php echo $produto["nome"]; ?></td>
+                        <td><?php echo $produto["preco"]; ?> kz</td>
+                        <td><?php echo $produto["descricao"]; ?></td>
+                        <td>
+                            <a href="editar.php?id=<?php echo $produto["id"]; ?>" class="btn btn-sm btn-warning">Edit</a>
+                        </td>
                         
-                    </th>
-                </thead>
-                <tbody>
-                        <?php  
-                            $produtos = Produto::View(); 
-                            foreach ($produtos as $produto): 
-                        ?>
-                        <tr>
-                            <td></td>
-                            <td>#<?php echo $produto["id"]; ?></td>
-                            <td><?php echo $produto["nome"]; ?></td>
-                            <td><?php echo $produto["preco"]; ?> kz</td>
-                            <td><?php echo $produto["descricao"]; ?></td>
-                            <td>
-                                <a href="editar.php?id=<?php echo $produto["id"]; ?>" class="btn btn-sm btn-warning">Edit</a>
-                            </td>
-                            
-                            <td>
-                                <form action="../Controller/produtoController.php" method="POST">
-                                    <input type="hidden" name="pegar" value="delete">
-                                    <input type="hidden" name="id" value="<?php echo $produto["id"]; ?>">
-                                    <button class="btn btn-sm btn-danger" id="button-modal-confirm">Delete</button>
-                                   
-                                </form>
-                            </td>
-                        </tr>
-                        <?php 
-                            endforeach 
-                        ?>
-                </tbody>
-            </table>
+                        <td>
+                            <form action="../Controller/produtoController.php" method="POST">
+                                <input type="hidden" name="pegar" value="delete">
+                                <input type="hidden" name="id" value="<?php echo $produto["id"]; ?>">
+                                <button class="btn btn-sm btn-danger button-modal-confirm">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <?php 
+                        endforeach 
+                    ?>
+            </tbody>
+        </table>
 
-            <a href="cadastro.php" class="w-10 btn btn-lg btn-primary">Cadastar</a>
+        <a href="cadastro.php" class="w-10 btn btn-lg btn-primary">Cadastar</a>
 
     </div>
     <script src="../../public/js/modalConfirm.js" defer></script>
