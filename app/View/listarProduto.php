@@ -16,9 +16,11 @@
 <body>
     <div class="container m-4">
         <div class="text-center mb-4">
-            <img src="../../public/img/logo.png" alt="Logo" width="72" height="72">
+            <a href="login.php">
+                <img class="m-4" src="../../public/img/user.jpg" alt="Perfil" width="72" height="72">
+            </a>
             <h1 class="h3 mb-3 fw-normal">Sistema de Gestão de Produtos</h1>
-            <p class="mt-1 mb-3 text-muted">Sistema de Gestão de Produtos</p>
+            <p class="mt-1 mb-3 text-muted">Produtos Cadastrados no Sistema</p>
         </div>
 
         <table class="table table-striped table-hover">
@@ -58,7 +60,7 @@
                         </td>
                     </tr>
                     <?php 
-                        endforeach 
+                        endforeach; 
                     ?>
             </tbody>
         </table>
