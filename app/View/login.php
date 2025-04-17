@@ -25,12 +25,12 @@
             <input type="hidden" name="pegar" value="saved">
             
             <div class="form-floating">
-                <input class="form-control" type="text" id="login" name="login">
+                <input class="form-control" type="text" id="login" name="login" required>
                 <label for="login">Login</label>
             </div>
 
             <div class="form-floating">
-                <input class="form-control" type="password" id="senha" name="senha">
+                <input class="form-control" type="password" id="senha" name="senha" required>
                 <label for="senha">Senha</label>
             </div>
 
